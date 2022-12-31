@@ -7,21 +7,21 @@ const resultado =  document.getElementById("result")
 
 // Funcion encriptadora
 const encriptar = (contenido) => {
-  contenido = contenido.replace("e", "enter")
-  contenido = contenido.replace("i", "imes")
-  contenido = contenido.replace("a", "ai")
-  contenido = contenido.replace("o", "ober")
-  contenido = contenido.replace("u", "ufat")
+  contenido = contenido.replaceAll("e", "enter")
+  contenido = contenido.replaceAll("i", "imes")
+  contenido = contenido.replaceAll("a", "ai")
+  contenido = contenido.replaceAll("o", "ober")
+  contenido = contenido.replaceAll("u", "ufat")
 
   return contenido
 }
 
 const desencriptar = (contenido) => {
-  contenido = contenido.replace("enter", "e")
-  contenido = contenido.replace("imes", "i")
-  contenido = contenido.replace("ai", "a")
-  contenido = contenido.replace("ober", "o")
-  contenido = contenido.replace("ufat", "u")
+  contenido = contenido.replaceAll("enter", "e")
+  contenido = contenido.replaceAll("imes", "i")
+  contenido = contenido.replaceAll("ai", "a")
+  contenido = contenido.replaceAll("ober", "o")
+  contenido = contenido.replaceAll("ufat", "u")
 
   return contenido
 }
