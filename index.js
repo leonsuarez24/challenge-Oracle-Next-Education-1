@@ -26,6 +26,10 @@ const desencriptar = (contenido) => {
   return contenido
 }
 
+const copy = () => {
+  resultado.select()
+  navigator.clipboard.writeText(resultado.value);
+}
 
 // Eventos
 encriptarButton.addEventListener("click", () => {
@@ -37,6 +41,8 @@ desencriptarButton.addEventListener("click", () => {
   let contenido = inputText.value
   resultado.value = desencriptar(contenido)
 })
+
+copiarButton.addEventListener("click", copy)
 
 
 
