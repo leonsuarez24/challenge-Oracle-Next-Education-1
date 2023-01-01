@@ -1,12 +1,9 @@
-// Variables
+// Variables ----------------------------------
 const d = document
-const encriptarButton = d.getElementById("encriptar")
-const desencriptarButton = d.getElementById("desencriptar")
-const copiarButton = d.getElementById("copiar")
 const inputText = d.getElementById("text-input")
 const resultado =  d.getElementById("result")
 
-// Functions
+// Functions ----------------------------------
 const encriptar = (contenido) => {
   contenido = contenido.replaceAll("e", "enter")
   contenido = contenido.replaceAll("i", "imes")
@@ -32,39 +29,45 @@ const copy = () => {
   navigator.clipboard.writeText(resultado.value);
 }
 
-
-// Events
-encriptarButton.addEventListener("click", () => {
-  let contenido = inputText.value
-
-  if (contenido.length == 0) {
-    Swal.fire(
-    'Ningún mensaje fue encontrado',
-    'Ingresa el texto que desees encriptar o desencriptar.',
-    'error'
-   )
-  } 
-  else {
-    resultado.value = encriptar(contenido)
-    inputText.value = ""
-  }
+// Events ---------------------------------------
+d.addEventListener("click", (e) => {
   
-});
+  if (e.target.matches("#encriptar")) {
+    let contenido = inputText.value
 
-desencriptarButton.addEventListener("click", () => {
-  let contenido = inputText.value
-
-  if (contenido.length == 0) {
-    Swal.fire(
-    'Ningún mensaje fue encontrado',
-    'Ingresa el texto que desees encriptar o desencriptar.',
-    'error'
-   )
+    if (contenido.length == 0) {
+      Swal.fire(
+        'Ningún mensaje fue encontrado',
+        'Ingresa el texto que desees encriptar o desencriptar.',
+        'error'
+      )
+    }
+    else {
+      resultado.value = encriptar(contenido)
+      inputText.value = ""
+    }
   }
-  else {
-    resultado.value = desencriptar(contenido)
-    inputText.value = ""
+
+  if (e.target.matches("#desencriptar")) {
+    let contenido = inputText.value
+
+    if (contenido.length == 0) {
+      Swal.fire(
+      'Ningún mensaje fue encontrado',
+      'Ingresa el texto que desees encriptar o desencriptar.',
+      'error'
+      )
+    }
+    else {
+      resultado.value = desencriptar(contenido)
+      inputText.value = ""
+    }
+  }
+
+  if (e.target.matches("#copiar")) {
+    copy()
   }
 })
 
-copiarButton.addEventListener("click", copy)
+
+
