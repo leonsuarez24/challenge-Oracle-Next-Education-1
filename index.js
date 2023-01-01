@@ -36,11 +36,13 @@ const copy = () => {
 encriptarButton.addEventListener("click", () => {
   let contenido = inputText.value
   resultado.value = encriptar(contenido)
+  inputText.value = ""
 });
 
 desencriptarButton.addEventListener("click", () => {
   let contenido = inputText.value
   resultado.value = desencriptar(contenido)
+  inputText.value = ""
 })
 
 copiarButton.addEventListener("click", copy)
