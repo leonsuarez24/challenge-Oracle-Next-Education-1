@@ -1,11 +1,12 @@
 // Variables
-const encriptarButton = document.getElementById("encriptar")
-const desencriptarButton = document.getElementById("desencriptar")
-const copiarButton = document.getElementById("copiar")
-const inputText = document.getElementById("text-input")
-const resultado =  document.getElementById("result")
+const d = document
+const encriptarButton = d.getElementById("encriptar")
+const desencriptarButton = d.getElementById("desencriptar")
+const copiarButton = d.getElementById("copiar")
+const inputText = d.getElementById("text-input")
+const resultado =  d.getElementById("result")
 
-// Funcion encriptadora
+// Functions
 const encriptar = (contenido) => {
   contenido = contenido.replaceAll("e", "enter")
   contenido = contenido.replaceAll("i", "imes")
@@ -31,7 +32,7 @@ const copy = () => {
   navigator.clipboard.writeText(resultado.value);
 }
 
-// Eventos
+// Events
 encriptarButton.addEventListener("click", () => {
   let contenido = inputText.value
   resultado.value = encriptar(contenido)
@@ -43,27 +44,3 @@ desencriptarButton.addEventListener("click", () => {
 })
 
 copiarButton.addEventListener("click", copy)
-
-
-
-
-
-
-
-/*
-const encriptar = (contenido) => {
-  const arrayContenido = contenido.split("")
-  const arrayEncriptado = []
-
-  for (i = 0; i < arrayContenido.length; i++) {
-    if (arrayContenido[i] === "e") arrayEncriptado[i] = "enter"
-    else if (arrayContenido[i] === "i") arrayEncriptado[i] = "imes"
-    else if (arrayContenido[i] === "a") arrayEncriptado[i] = "ai"
-    else if (arrayContenido[i] === "o") arrayEncriptado[i] = "ober"
-    else if (arrayContenido[i] === "u") arrayEncriptado[i] = "ufat"
-    else arrayEncriptado[i] = arrayContenido[i]
-  }
-
-  return arrayEncriptado.join("")
-}
-*/
