@@ -32,17 +32,39 @@ const copy = () => {
   navigator.clipboard.writeText(resultado.value);
 }
 
+
 // Events
 encriptarButton.addEventListener("click", () => {
   let contenido = inputText.value
-  resultado.value = encriptar(contenido)
-  inputText.value = ""
+
+  if (contenido.length == 0) {
+    Swal.fire(
+    'Ningún mensaje fue encontrado',
+    'Ingresa el texto que desees encriptar o desencriptar.',
+    'error'
+   )
+  } 
+  else {
+    resultado.value = encriptar(contenido)
+    inputText.value = ""
+  }
+  
 });
 
 desencriptarButton.addEventListener("click", () => {
   let contenido = inputText.value
-  resultado.value = desencriptar(contenido)
-  inputText.value = ""
+
+  if (contenido.length == 0) {
+    Swal.fire(
+    'Ningún mensaje fue encontrado',
+    'Ingresa el texto que desees encriptar o desencriptar.',
+    'error'
+   )
+  }
+  else {
+    resultado.value = desencriptar(contenido)
+    inputText.value = ""
+  }
 })
 
 copiarButton.addEventListener("click", copy)
